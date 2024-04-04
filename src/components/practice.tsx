@@ -8,8 +8,12 @@ const Child = ({
   children: ReactNode;
   user: {
     name: string;
-    age: number;
+    age?: number;
     isChild: boolean;
+    profile?: {
+      weight: number;
+      height: number;
+    };
   };
 }) => {
   return (
@@ -17,8 +21,14 @@ const Child = ({
       <h2>Child</h2>
       {children}
       <p>{user.name}</p>
-      <p>{user.age}歳</p>
+      <p>{user.age && `10年後${user.age + 10}歳`}</p>
       <p>{user.isChild ? "子供です" : "大人です"}</p>
+      <p>
+        {user.profile?.weight}
+      </p>
+      <p>
+        {user.profile?.height}
+      </p>
     </div>
   );
 };
